@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+    <style>
+        /* CSS styles for the button */
+        body{
+            background-color:#f7fdf7;
+            
+        }
+
+
+        .back{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 700px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+
+        .rank{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 300px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* CSS styles for button hover state */
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #cdf0ce;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 3px solid #232020;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    
+        <button class="rank" id="rank" onclick="rank()">Rank</button>
+ 
+
+    <a href="dashboard.html">
+    <button class="back">Back</button>
+    </a>
+
+    <div id="rank"><span id="rankTable"></span></div>
+
+
+   
+<script>
+    async function rank() {  
+       const youremail = localStorage.getItem("useremail");
+       const user = { youremail: youremail };
+       console.log(youremail);
+   
+       const res = await fetch("http://localhost:4000/rank_user", {
+           method: "POST",
+           body: JSON.stringify(user),
+           headers: { "Content-type": "application/json; charset=UTF-8" }
+       });
+   
+       const response = await res.json();
+       console.log(response);
+   
+       // Construct HTML table based on the response data
+       let tableHtml = "<table>";
+       tableHtml += "<tr><th>Email</th><th>Rank</th></tr>";
+       response.forEach(entry => {
+           tableHtml += `<tr><td>${entry[0]}</td><td>${entry[1]}</td></tr>`;
+       });
+       tableHtml += "</table>";
+   
+       
+       document.getElementById("rankTable").innerHTML = tableHtml;
+   }
+</script>
+</body>
+</html>

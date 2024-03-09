@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<style>
+
+body{
+  background-image: url("background.jpg");
+}
+.container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #9fe7c3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #87bd9c;
+    border-radius: 5px;
+}
+
+.btn,
+.btnback {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn:hover,
+.btnback:hover {
+    background-color: #45a049;
+}
+
+.btnback {
+    background-color: #f44336;
+    margin-right: 10px;
+}
+
+.btnback:hover {
+    background-color: #d32f2f;
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <h1>Edit Profile</h1>
+        <form>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Current password:</label>
+                <input type="password" id="currentpassword" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="password">New password:</label>
+                <input type="password" id="newpassword" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm password:</label>
+                <input type="password" id="confirmpassword" name="confirm-password">
+            </div>
+            <!-- <div class="form-group">
+                <label for="profile-picture">Profile Picture:</label>
+                <input type="file" id="profilepicture" name="profile-picture">
+            </div> -->
+            
+            
+        </form>
+        <button type="submit" class="btn" onclick="editprofile()">Save Changes</button>
+        <div>
+            <button type="submit" class="btnback" onclick="dashboard()">Back</button>
+        </div>
+    </div>
+    
+   
+    <script src="../JS/login.js"></script>
+</body>
+</html>

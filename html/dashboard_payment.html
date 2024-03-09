@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="../JS/login.js" defer>
+   
+    </script>
+    <link rel="stylesheet" href="../CSS/dashboard_agent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <ul class="menu">
+                <li class="active">
+                    <a href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5501/html/account_details_payment.html">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5501/html/payment_transaction.html">
+                        <i class="fa-solid fa-timeline"></i>
+                        <span>History</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="http://127.0.0.1:5501/html/setting_payment.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="../html/pre-sign-up.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Primary</span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+
+                <img src="../dulal.png" alt="" onclick="account_payment()">
+            </div>
+        </div>
+
+      
+        <div class="header--wrapper_balance" style="height: 50px; position: relative; left: 0%;">
+            <button id="balance_check" class="balance_check" onclick="balance_check_payment()">Your balance...<div id="balance_check_result_agent"></div></button>
+        </div>
+
+            
+
+        <div class="options-container">
+            <a href="http://127.0.0.1:5501/html/sendmoney_payment.html">
+            <div class="option"  style="position:absolute;top:30%;">
+               
+                <i class="fa-solid fa-comments-dollar" style="position: relative;top: 20px; left: -10px;"></i>
+                <h2>Send Money</h2>
+                <br>
+                <br>
+                <p>Send Money To Another Account</p>
+               
+            </div>
+            </a>
+          
+            <a href="http://127.0.0.1:5501/html/cashin_payment.html">
+                <div class="option" style="position:absolute;top:30%; left: 17%;">
+                  <i class="fa-solid fa-hand-holding-dollar" style="position: relative;top:0px;left: 0px;"></i>
+                  <h2>Cash In</h2>
+                  <br>
+                  <br>
+                  <p>Cash in your account</p>
+                </div>
+                </a>
+
+            <a href="http://127.0.0.1:5501/html/cashout_payment.html">
+            <div class="option" style="position:absolute;top:30%; left: 33%;">
+              <i class="fa-solid fa-hand-holding-dollar" style="position: relative;top: 0px;left: 0px;"></i>
+              <h2>Cash Out</h2>
+              <br>
+              <br>
+              <p>Receive Hand Cash From An Agent</p>
+            </div>
+            </a>
+            
+
+            <a href="http://127.0.0.1:5501/html/paybill_payment.html">
+            <div class="option" style="position:absolute;top:30%; left: 49%;">
+                <i class="fa-solid fa-money-bill"  style="position:absolute;top:45px; left: 20px;"></i>
+                <h2>Pay bill</h2>
+                <br>
+                <br>
+                <p>Bill payment</p>
+            </div>
+            </a>
+          </div>
+          
+          <a href="http://127.0.0.1:5501/html/payment_payment.html">
+          <div class="option" style="position:absolute;top:30%; left: 65%;">
+            <i class="fa-solid fa-cart-shopping" style="position:absolute;top:20px; left: 20px;"></i>
+            <h2>Payment</h2>
+            <br>
+            <br>
+            <p>Buy Something Online</p>
+          </div>
+        </a>
+
+
+        <a href="http://127.0.0.1:5501/html/payment_transaction.html">
+            <div class="option" style="position:absolute;top:30%; left: 81%;">
+              <i class="fa-solid fa-cart-shopping" style="position:absolute;top:47px; left: 40px;"></i>
+              <h2>Histroy</h2>
+              <br>
+              <br>
+              <p>Details your transaction</p>
+            </div>
+          </a>
+    
+
+        <div class="email-container">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1 id="Email">Email: <span id="payment_Email"></span></h1>
+        </div>
+
+        <!-- <div class="email-container">
+            <br><br><br><br>
+            <h1 id="address">Address: <span id="address"></span></h1>
+        </div> -->
+
+      </div>
+    </div>
+
+
+    
+    <script src="../JS/login.js"></script>
+    <script>
+        const payment_email = localStorage.getItem('email');
+        
+        //const address = localStorage.getItem('address')
+
+       console.log(payment_email);
+       
+
+
+        document.getElementById('payment_Email').innerText = payment_email;
+        // document.getElementById('userBalance').innerText = userbalance + " Taka";
+           </script>
+
+           <script>
+
+           </script>
+     
+</body>
+</html>

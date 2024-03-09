@@ -1,0 +1,107 @@
+body{
+    background-image: url("background.jpg");
+}
+
+.container{
+    width: 40%;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    padding: 10px;
+    margin-left: 500px;
+    margin-top: 50px;
+    padding-left: 50px;
+    background-color: rgb(35, 151, 93);
+    border-radius: 10px;
+}
+
+.header{
+    margin-left: 200px;
+}
+
+.email{
+    width: 500px;
+    height: 20px;
+    background-color: aqua;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.email input{
+    width: 300px;
+    height: 25px;
+    padding-left: 11px;
+}
+
+.amount{
+    width: 500px;
+    height: 20px;
+    background-color: aqua;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.amount input{
+    width: 150px;
+    height: 25px;
+    margin-left: 51px;
+}
+
+.reference{
+    width: 500px;
+    height: 20px;
+    background-color: aqua;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.reference input{
+    width: 150px;
+    height: 25px;
+    margin-left: 80px;
+}
+
+.password{
+    width: 500px;
+    height: 20px;
+    background-color: aqua;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.password input{
+    width: 150px;
+    height: 25px;
+    margin-left: 83px;
+}
+
+
+
+.send{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(83, 220, 81);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.back{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(83, 220, 81);
+    border-radius: 5px;
+    margin-left: 300px;
+    cursor: pointer;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/toast.css">
+    <title>Update Password</title>
+    <style>
+       .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #a0e2b9;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+body{
+    background-image: url("background.jpg");
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Password</h2>
+        <form id="updatePasswordForm">
+
+            <div class="form-group">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" name="currentPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+        </form>
+        <button id="signup-btn" onclick="updatePassword_agent()">Update Password</button>
+        <button id="signup-btn" onclick="dashboard_agent()">Back</button>
+    </div>
+
+    <script>
+    async function updatePassword_agent() {
+    const email = localStorage.getItem("agentemail")
+    const current_Pass = document.getElementById("currentPassword").value
+    const new_pass = document.getElementById("newPassword").value
+    const con_newPass = document.getElementById("confirmPassword").value
+
+    console.log(email)
+    console.log(current_Pass);
+    console.log(new_pass);
+    console.log(con_newPass);
+    const user = {
+        email: email,
+        current_pass : current_Pass,
+        new_pass: new_pass
+    }
+
+    console.log(user)
+
+    // if(new_pass !== con_newPass) {
+    //     showToast("New Passwords Don't Match!");
+    // }
+
+   
+    const res = await fetch("http://localhost:4000/pass_check_agent", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+    })
+
+    const response2 = await res.json();
+    console.log(response2);
+
+    if(response2) {
+        console.log("entered in true")
+        if(new_pass !== con_newPass) {
+            showToast("New Passwords Don't Match!");
+        }
+        else {
+            const res = await fetch("http://localhost:4000/update_agent", {
+                method: "POST",
+                body: JSON.stringify(user),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            showToast("Password Updated");
+            window.location.href = "../html/dashboard_agent.html";
+            }
+        }
+    else {
+        console.log("entered in false")
+        showToast("Invalid Email or Password");
+    }
+}
+    </script>
+
+    <script src="../JS/login.js"></script>
+</body>
+</html>

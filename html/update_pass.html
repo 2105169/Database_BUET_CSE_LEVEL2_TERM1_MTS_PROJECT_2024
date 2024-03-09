@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/toast.css">
+    <title>Update Password</title>
+    <style>
+       .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #a0e2b9;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+body{
+    background-image: url("background.jpg");
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.update{
+    background-color: #0eab13;
+    margin-top: 10px;
+    margin-left: 400px;
+}
+
+.back{
+    background-color: #0eab13;
+    margin-top: 10px;
+    margin-left: 500px;
+}
+
+button {
+    background-color: #4cd951;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Password</h2>
+        <form id="updatePasswordForm">
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" name="currentPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            
+            
+        </form>
+    </div>
+    <button id="signup-btn" class="update" onclick="updatePassword()">Update Password</button>
+    <button id="signup-btn" onclick="dashboard()" class="back">Back</button>
+
+<script>
+    async function updatePassword() {
+        const email = document.getElementById("email").value;
+        const currPass = document.getElementById("currentPassword").value;
+        const newPass = document.getElementById("newPassword").value;
+        const confirmNewPass = document.getElementById("confirmPassword").value;
+    
+        const user = {
+            email: email,
+            currPass: currPass,
+            newPass: newPass
+        };
+    
+        if (newPass !== confirmNewPass) {
+            console.log("Passwords don't match");
+            //showToast("New passwords don't match!");
+            return;
+        }
+    console.log(user)
+        try {
+            const response = await fetch("http://localhost:4000/pass_check_user", {
+                method: "POST",
+                body: JSON.stringify(user),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            });
+            
+            const data = await response.json();
+            
+            console.log(data);
+
+            if (data === true) {
+                const updateResponse = await fetch("http://localhost:4000/update_user", {
+                    method: "POST",
+                    body: JSON.stringify(user),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                });
+                console.log("Updated")
+                window.location.href = "http://127.0.0.1:5501/html/dashboard.html";
+               // showToast("Password updated");
+            } else {
+                console.log("Invalid")
+                //showToast("Invalid email or password");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            //showToast("An error occurred. Please try again later.");
+        }
+    }
+    </script>
+    <script src="../JS/login.js"></script>
+    <!-- HTML -->
+
+    
+</body>
+</html>

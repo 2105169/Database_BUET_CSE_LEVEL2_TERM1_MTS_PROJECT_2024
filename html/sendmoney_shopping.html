@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send money</title>
+    <link rel="stylesheet" href="sendmoney_agent.css">
+</head>
+<body>
+
+<div class="container">
+        <div class="header">
+            <h1>Send money</h1>
+        </div>
+    
+        <div class="email">
+            
+            <label for="email">Enter receiver email</label> 
+            <input type="text" class="input_email" id="email_agent" name="emailname" value="">
+            <br>
+        </div>
+    
+
+        <div class="amount">
+            
+            <label for="amount">Enter amount: </label> 
+            <input type="number" id="amount_agent" name="amountname">
+            <br>
+        </div>
+   
+    
+        <div class="reference">
+            
+            <label for="reference">Reference: </label>
+            <input type="text" id="reference_agent" name="reference_agent" value=""><br>
+        </div>
+    
+        <div class="password">
+            
+            <label for="password">Password: </label>
+            <input type="password" id="password_agent" name="password" value="">
+            <br>
+        </div>
+    
+        <div class="button">
+            <br>
+                <button class="send" id ="signup-btn" onclick="sendmoney_shopping()">
+                    Send
+                </button>
+                <a href="http://127.0.0.1:5501/html/dashboard_shopping.html">
+                <button class="back">
+                    Back
+                </button>
+                </a>
+            <br><br>
+        </div>
+    </div>
+        
+        <script src="../JS/login.js"></script>
+</body>
+</html>

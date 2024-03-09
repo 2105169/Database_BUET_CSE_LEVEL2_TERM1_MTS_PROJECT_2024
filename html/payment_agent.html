@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+<div class="container">
+        <div class="header">
+            <h1>Payment</h1>
+        </div>
+    
+        <div class="agentmail">
+            
+            <label for="rname">Enter email: </label>
+            <input type="text" id="paymentemail" name="agentname"><br>
+    
+        </div>
+    
+
+        <div class="amountcashout">
+            
+            <label for="amount">Enter amount: </label> 
+            <input type="number" id="amount_payment" name="amountname">
+            <br>
+        </div>
+    
+        
+        <div class="bill">
+            <label for="bill">Choose payment type:</label>
+            <select name="billname" id="bill">
+                <option value="medicine">Medicine</option>
+                <option value="shop">Shop</option>
+                <option value="instrument">Instrument</option>
+                <option value="help">Help</option>
+            </select>
+        </div>
+
+    
+        <div class="reference">
+            <label for="reference">Reference: </label>
+            <input type="text" id="reference_payment" name="reference1"><br>
+        </div>
+    
+        <div class="password1">
+            
+            <label for="password1">Password: </label>
+            <input type="password" id="password_payment" name="password3">
+            <br>
+        </div>
+    
+        <div class="button1">
+            <br>
+            <button class="send" id ="cashout_btn" onclick="payment_agent()">
+                Send
+            </button>
+        
+            <a href="http://127.0.0.1:5501/html/dashboard_agent.html">
+            <button class="back">
+                Back
+            </button>
+            </a>
+            
+            <br><br>
+        </div>
+</div>
+        <script src="../JS/login.js"></script>
+</body>
+</html>

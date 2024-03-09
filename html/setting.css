@@ -1,0 +1,43 @@
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #93ddbc;
+}
+
+body{
+    background-image: url("background.jpg");
+  }
+.container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.update,
+.delete,
+.back {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.update:hover,
+.delete:hover,
+.back:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    margin: 0;
+}
+
+br {
+    line-height: 20px;
+}

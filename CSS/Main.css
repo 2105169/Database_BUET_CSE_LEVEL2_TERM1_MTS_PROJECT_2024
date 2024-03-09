@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    font: comfortaa;
+}
+
+body{
+    background-color: rgb(203, 203, 223);
+}
+
+.container{
+    margin: 10px auto;
+}
+
+.main-page-header{
+    padding: 10px 0px;
+}
+
+.main-page-header .company-name{
+    font-weight: 600px;
+    color: white;
+}
+
+.navigation{
+    /*border: 1px solid white;*/
+    margin-left: 20px;
+}
+
+.navigation li{
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+}
+
+.navigation li a{
+    color: white;
+    text-decoration: none;
+}
+
+.display-names{
+    font-weight: 600;
+}
+
+#transact-btn{
+    background-color: #FFB114;
+    border: 1px solid #543800;
+}
+
+#add-account-btn{
+    background-color: #FF4E00;
+    border: 1px solid #8B2B00;
+}
